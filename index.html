@@ -1,67 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
-</head>
-<body>
-  <div id="vis">
-  <script>
-    const spec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Populated Cities",
-  "width": 800,
-  "height": 400,
-  "projection": {"type": "equalEarth"},
-  "layer": [
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/Saginton/Data-Visualization-Homework/main/ne_10m_ocean.json",
-        "format": {"type": "topojson", "feature": "ne_10m_ocean"}
-      },
-      "mark": {"type": "geoshape", "fill": "skyblue"}
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/Saginton/Data-Visualization-Homework/main/ne_110m_graticules_30.json",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-      },
-      "mark": {"type": "geoshape", "fill": "null", "stroke": "lightgrey"}
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/Saginton/Data-Visualization-Homework/main/ne_110m_populated_places.json",
-        "format": {"type": "topojson", "feature": "ne_110m_populated_places"}
-      },
-      "mark": {"type": "geoshape"}
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/2_symbol_map/data/earthquake.csv"
-      },
-      "mark": {"type": "circle", "tooltip": {"content": "data"}},
-      "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "size": {
-          "field": "mag",
-          "type": "quantitative",
-          "title": "Magnitude (Richter scale)",
-          "scale": {"domain": [4, 8]}
-        },
-        "color": {
-          "field": "depth",
-          "type": "quantitative",
-          "title": "Depth in km",
-          "scale": {"scheme": "reds"}
-        }
-      }
-    }
-  ],
-  "config": {}
-};
-    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-  </script>
-</body>
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script> <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script> <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="https://raw.githubusercontent.com/Saginton/Data-Visualization-Homework/main/vega-lite.js"></script>
+    <title> Populated cities vs Earth Quake positions</title>
+  </head>
+  <body>
+    <h1>Visualization</h1>
+    <div id="vis"></div>
+  </body>
 </html>
